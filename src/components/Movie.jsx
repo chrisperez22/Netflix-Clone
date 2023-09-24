@@ -11,15 +11,7 @@ const Movie = ({ item }) => {
   const movieID = doc(db, 'users', `${user?.email}`);
 
   const saveShow = async () => {
-    if (user?.email) {
-      console.log("Saving show for user:", user.email);
-      console.log("Movie ID:", movieID);
-      console.log("Movie Details:", {
-        id: item.id,
-        title: item.title,
-        img: item.backdrop_path,
-      });
-  
+    if (user?.email) {  
       setLike(!like);
       setSaved(true);
       await setDoc(movieID, {

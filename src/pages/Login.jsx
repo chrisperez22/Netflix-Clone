@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import signupImage from '../Assets/signupNetflix.jpg'
 import { UserAuth } from "../context/AuthContext";
 
-
 const Login = () => {
 
     const [email, SetEmail] = useState("");

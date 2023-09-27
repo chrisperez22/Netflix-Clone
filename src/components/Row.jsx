@@ -8,10 +8,13 @@ const Row = ({ title, fetchURL, rowID }) => {
 
   useEffect(() => {
     axios.get(fetchURL).then((response) => {
-      setMovies(response.data.results);
+      const filteredMovies = response.data.results.filter(movie => {
+        return !Object.values(movie).some(value => value === null);
+      });
+      setMovies(filteredMovies);
     });
   }, [fetchURL]);
-
+  
   const slideLeft = () => {
         var slider = document.getElementById('slider' + rowID);
         slider.scrollLeft = slider.scrollLeft - 500;
